@@ -1,13 +1,14 @@
 from flask import Flask, request
 
-from agent1 import get_message_from_open_ai
+from controller import get_message_from_simple_chat, load_document
 
+load_document()
 app=Flask(__name__)
 @app.route('/message', methods=['GET', 'POST'])
 def message():
     if request.method == 'POST':
         message = request.json['message']
-        return get_message_from_open_ai(message)
+        return get_message_from_simple_chat(message)
     else:
         return 'Hello, World chatbot ready to battle!'
 
