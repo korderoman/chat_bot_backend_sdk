@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from controller import get_message_from_simple_chat, load_document
+from controller import get_message_from_simple_chat, load_document, get_message_from_simple_chat_with_rag
 
 load_document()
 app=Flask(__name__)
@@ -8,7 +8,8 @@ app=Flask(__name__)
 def message():
     if request.method == 'POST':
         message = request.json['message']
-        return get_message_from_simple_chat(message)
+        #return get_message_from_simple_chat(message)
+        return get_message_from_simple_chat_with_rag(message)
     else:
         return 'Hello, World chatbot ready to battle!'
 

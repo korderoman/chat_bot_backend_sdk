@@ -12,7 +12,7 @@ def get_message_from_simple_chat(message:str)->str:
     return response
 
 def load_document():
-    agent_simple_chat_with_rag.load_document(f"{file_path}ODS-FINAL210716.pdf")
+    agent_simple_chat_with_rag.implement_rag(f"{file_path}ODS-FINAL210716.pdf")
 
 def get_message_from_simple_chat_with_rag(message:str)->str:
-    return get_message_from_simple_chat_with_rag(message)
+    return agent_simple_chat_with_rag.get_message(message)
