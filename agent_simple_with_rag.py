@@ -83,6 +83,5 @@ class AgentSimpleWithRag:
 
     def get_message(self,message:str)->str:
         result=self.qa.invoke(input={'input':message})
-        print(f"message: {result['answer']}")
-        response=self.chat.invoke(message)
-        return response.content
+        print(result)
+        return result['answer']
